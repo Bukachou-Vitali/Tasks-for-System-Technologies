@@ -33,7 +33,7 @@ public class TestApp2 {
             + "    </SMS> \n"
             + "</DeliverySMS> ";
 
-    private static final String MESSAGE_CVV_PREFIX = "Code";
+    private static final String MESSAGE_CVV_PREFIX = "Code"; //Russian letter 'C' was written
     private static final String MESSAGE_CVV_POSTFIX = " ";
     private static final String MESSAGE_START = "<Message>";
     private static final String MESSAGE_END = "</Message>";
@@ -98,6 +98,7 @@ public class TestApp2 {
         int cipherLength;
 
         int startPos = message.toUpperCase().indexOf(MESSAGE_CVV_PREFIX.toUpperCase(), startFrom);
+        //Added if
         if(startPos > 0) {
             startPos += MESSAGE_CVV_PREFIX.length() + 2; //на ": " добавляем 2
             int endPos = message.indexOf(MESSAGE_CVV_POSTFIX, startPos);
