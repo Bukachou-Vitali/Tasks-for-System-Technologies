@@ -1,3 +1,3 @@
-SELECT MAX(users.userid) FROM users
-INNER JOIN usersessions ON users.userid = usersessions.userid
-WHERE usersessions.channeltype <> 1;
+SELECT MAX(usersessions.userid) FROM usersessions
+WHERE usersessions.userid NOT IN( SELECT usersessions.userid FROM usersessions
+WHERE usersessions.channeltype = 1);

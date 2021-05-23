@@ -21,7 +21,7 @@ public class NumberIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (stopFlag) {
+        if (stopFlag || !source.hasNext()) {
             return false;
         }
         return true;
@@ -30,8 +30,9 @@ public class NumberIterator implements Iterator {
     @Override
     public Object next() {
         if (this.hasNext()) {
-            Number currentNumber = (Number) source.next();
-            if (currentNumber.longValue() < numberLimit.longValue()) {
+            Number currentNumber = null;
+            currentNumber = (Number) source.next();
+            if (currentNumber.doubleValue() < numberLimit.doubleValue()) {
                 return currentNumber;
             } else {
                 stopFlag = true;

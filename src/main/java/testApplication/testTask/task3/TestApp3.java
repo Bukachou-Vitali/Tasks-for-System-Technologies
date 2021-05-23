@@ -33,9 +33,7 @@ public class TestApp3 {
      */
     public static Iterator process(Iterator source, Number number) {
 
-        Container numberRepository = new NumberRepository(source, number);
-
-        Iterator iter = numberRepository.getIterator();
+        Iterator iter = new NumberIterator(source, number);
 
         return iter;
     }
